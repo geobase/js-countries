@@ -1,5 +1,7 @@
 # Geo
 
+[![Join the chat at https://gitter.im/smart-io/js-geo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smart-io/js-geo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Geo is data from Open Data providers compiled into easy to use JavaScript objects.
 
 ## Table Of Content
