@@ -8,7 +8,7 @@
 [![npm version](https://img.shields.io/npm/v/smart-geo.svg)](https://www.npmjs.org/package/smart-geo)
 [![Join the chat at https://gitter.im/smart-io/js-geo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smart-io/js-geo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Geo is data from Open Data providers compiled into easy to use JavaScript objects.
+Smart Geo is data from Open Data providers compiled into easy to use JavaScript objects.
 
 ## Table Of Content
 
@@ -39,7 +39,7 @@ Geo is data from Open Data providers compiled into easy to use JavaScript object
 <a name="requirements-section"/>
 ## Requirements
 
-Geo does not require a database, but instead, uses JSON files.
+Smart Geo does not require a database, but instead, uses JSON files.
 
 <a name="installation-section"/>
 ## Installation
@@ -48,14 +48,14 @@ Geo does not require a database, but instead, uses JSON files.
 ### Installation with npm
 
 ```bash
-npm install geo
+npm install smart-geo
 ```
 
 <a name="installation-with-bower-section"/>
 ### Installation with Bower
 
 ```bash
-bower install geo
+bower install smart-geo
 ```
 
 <a name="country-section"/>
@@ -83,7 +83,7 @@ __Examples__
 Get a list of all countries.
 
 ```javascript
-var geo = require('geo');
+var geo = require('smart-geo');
 
 geo.countryRepository.findAll().then(function (countries) {
   console.log(countries);
@@ -93,7 +93,7 @@ geo.countryRepository.findAll().then(function (countries) {
 Get a country name in english.
 
 ```javascript
-var geo = require('geo');
+var geo = require('smart-geo');
 
 geo.countryRepository.findAll().then(function (countries) {
   console.log(countries.names.get('en').name);
@@ -103,7 +103,7 @@ geo.countryRepository.findAll().then(function (countries) {
 Order by country name in english.
 
 ```javascript
-var geo = require('geo');
+var geo = require('smart-geo');
 
 geo.countryRepository.findAll().then(function (countries) {
   countries.orderByName();
@@ -132,7 +132,7 @@ __Examples__
 Get a list of all regions in the US.
 
 ```javascript
-var geo = require('geo');
+var geo = require('smart-geo');
 
 geo.countryRepository.findByCode('US')
   .then(function (country) {
@@ -145,7 +145,7 @@ geo.countryRepository.findByCode('US')
 Get region name and type in english.
 
 ```javascript
-var geo = require('geo');
+var geo = require('smart-geo');
 
 geo.regionRepository.findAll()
   .then(function (regions) {
@@ -161,4 +161,4 @@ geo.regionRepository.findAll()
 <a name="license-section"/>
 ## License
 
-PHP UPS API is licensed under [The MIT License (MIT)](LICENSE).
+Smart Geo is licensed under [The MIT License (MIT)](LICENSE).
