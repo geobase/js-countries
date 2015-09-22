@@ -8,7 +8,7 @@ class CountryMapper {
         for (let i = 0, len = data.length; i < len; ++i) {
             let country = await CountryMapper.mapArrayToEntity(data[i]);
             if (country) {
-                collection.push(country);
+                collection.add(country);
             }
         }
         return collection;

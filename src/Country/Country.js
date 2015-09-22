@@ -10,13 +10,20 @@ class Country {
     }
 
     set(attributes) {
-        for(var prop in attributes) {
+        var newAttributes = {};
+        for(let prop in attributes) {
             if(attributes.hasOwnProperty(prop)) {
                 if (typeof this.model[prop] !== 'undefined') {
-                    this[prop] = new this.model[prop](attributes[prop]);
+                    newAttributes[prop] = new this.model[prop];
+                    newAttributes[prop].add(attributes[prop]);
                 } else {
-                    this[prop] = attributes[prop];
+                    newAttributes[prop] = attributes[prop];
                 }
+            }
+        }
+        for(let prop in newAttributes) {
+            if(newAttributes.hasOwnProperty(prop)) {
+                this[prop] = newAttributes[prop];
             }
         }
     }
