@@ -7,7 +7,6 @@ class CountryRepository {
     static findAll() {
         return new Promise(async function(resolve, reject) {
             const collection = await CountryMapper.mapArrayToCollection(await CountryLoader.loadAllCountries());
-            CountryRepository.items = collection;
             resolve(collection);
         });
     }
