@@ -1,4 +1,13 @@
 class ArrayCollection extends Array {
+    elements = {};
+
+    constructor(items) {
+        super();
+        if (items !== undefined) {
+            this.add(items);
+        }
+    }
+
     static removeAccents(string) {
         return string
             .toLowerCase()

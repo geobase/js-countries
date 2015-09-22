@@ -4,14 +4,6 @@ import CountryName from './CountryName';
 class CountryNameCollection extends ArrayCollection {
     model = CountryName;
     key = 'language';
-    elements = {};
-
-    constructor(items) {
-        super();
-        if (items !== undefined) {
-            this.add(items);
-        }
-    }
 
     add(items) {
         for(var prop in items) {
