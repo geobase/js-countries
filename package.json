@@ -1,7 +1,7 @@
 {
   "name": "geo",
   "version": "0.1.0",
-  "description": "Geo is data from Open Data providers compiled into easy to use JavaScript objects.",
+  "description": "Geo is data from Open Data providers compiled into easy to use JavaScript objects",
   "scripts": {
     "data-update": "babel-node --eval \"require('./bin/data-update')().catch(err => console.error(err.stack))\"",
     "test": "mocha --compilers js:babel/register --recursive"
@@ -32,7 +32,6 @@
     "mocha": "^2.2.5",
     "mocha-spec-cov-alt": "^0.3.0",
     "request": "^2.63.0",
-    "should": "^7.1.0",
     "temp": "^0.8.3"
   }
 }

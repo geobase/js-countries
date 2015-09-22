@@ -1,0 +1,33 @@
+{
+  "name": "geo",
+  "description": "Geo is data from Open Data providers compiled into easy to use JavaScript objects",
+  "homepage": "https://github.com/smart-io/js-geo",
+  "main": "./build/geo.js",
+  "version": "0.1.0",
+  "keywords": [
+    "geo",
+    "country",
+    "countries",
+    "region",
+    "regions",
+    "province",
+    "provinces",
+    "state",
+    "states"
+  ],
+  "ignore": [
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "authors": [
+    "Gabriel Bull"
+  ],
+  "license": "MIT"
+}
