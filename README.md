@@ -1,11 +1,11 @@
-# Geo
+# Smart Geo
 
 [![Build Status](https://travis-ci.org/smart-io/js-geo.svg)](https://travis-ci.org/smart-io/js-geo)
 [![Code Climate](https://codeclimate.com/github/yamadapc/js-written-number.png)](https://codeclimate.com/github/yamadapc/js-written-number)
 [![Dependency Status](https://david-dm.org/smart-io/js-geo.svg)](https://david-dm.org/smart-io/js-geo)
 [![devDependency Status](https://david-dm.org/smart-io/js-geo/dev-status.svg)](https://david-dm.org/smart-io/js-geo#info=devDependencies)
-[![npm downloads per month](http://img.shields.io/npm/dm/geo.svg)](https://www.npmjs.org/package/geo)
-[![npm version](https://img.shields.io/npm/v/geo.svg)](https://www.npmjs.org/package/geo)
+[![npm downloads per month](http://img.shields.io/npm/dm/smart-geo.svg)](https://www.npmjs.org/package/smart-geo)
+[![npm version](https://img.shields.io/npm/v/smart-geo.svg)](https://www.npmjs.org/package/smart-geo)
 [![Join the chat at https://gitter.im/smart-io/js-geo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smart-io/js-geo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Geo is data from Open Data providers compiled into easy to use JavaScript objects.
