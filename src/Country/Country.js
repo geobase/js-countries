@@ -2,14 +2,14 @@ import Model from '../Model';
 import CountryNameCollection from './CountryName/CountryNameCollection';
 
 class Country extends Model {
-    model = {
-        names: CountryNameCollection
-    };
+  model = {
+    names: CountryNameCollection
+  };
 
-    constructor(attributes) {
-        super();
-        this.set(attributes);
-    }
+  constructor(attributes) {
+    super();
+    this.set(attributes);
+  }
 }
 
 export default Country;
