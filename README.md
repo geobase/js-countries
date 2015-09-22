@@ -1,5 +1,13 @@
 # Geo
 
+[![Build Status](https://travis-ci.org/smart-io/js-geo.svg)](https://travis-ci.org/smart-io/js-geo)
+[![Code Climate](https://codeclimate.com/github/yamadapc/js-written-number.png)](https://codeclimate.com/github/yamadapc/js-written-number)
+[![Dependency Status](https://david-dm.org/smart-io/js-geo.svg)](https://david-dm.org/smart-io/js-geo)
+[![devDependency Status](https://david-dm.org/smart-io/js-geo/dev-status.svg)](https://david-dm.org/smart-io/js-geo#info=devDependencies)
+[![npm downloads per month](http://img.shields.io/npm/dm/geo.svg)](https://www.npmjs.org/package/geo)
+[![npm version](https://img.shields.io/npm/v/geo.svg)](https://www.npmjs.org/package/geo)
+[![Join the chat at https://gitter.im/smart-io/js-geo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smart-io/js-geo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Geo is data from Open Data providers compiled into easy to use JavaScript objects.
 
 ## Table Of Content
@@ -8,8 +16,8 @@ Geo is data from Open Data providers compiled into easy to use JavaScript object
 2. [Sources](#sources-section)
 3. [Requirements](#requirements-section)
 4. [Installation](#installation-section)
-  4.1. [Installation with npm](#installation-with-npm-section)
-  4.2. [Installation with Bower](#installation-with-bower-section)
+  - [Installation with npm](#installation-with-npm-section)
+  - [Installation with Bower](#installation-with-bower-section)
 5. [Country](#country-section)
 6. [Region](#region-section)
 7. [License](#license-section)
@@ -143,7 +151,7 @@ geo.regionRepository.findAll()
   .then(function (regions) {
     for (var i = 0, len = regions.lenght; i < len; ++i) {
       console.log(
-        regions[i].names.get('en').name + " is a + 
+        regions[i].names.get('en').name + " is a " + 
         regions[i].type + " of the " +
         regions[i].country.names.get('en').name
     }
