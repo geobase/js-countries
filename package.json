@@ -1,0 +1,38 @@
+{
+  "name": "geo",
+  "version": "0.1.0",
+  "description": "Geo is data from Open Data providers compiled into easy to use JavaScript objects.",
+  "scripts": {
+    "data-update": "babel-node --eval \"require('./bin/data-update')().catch(err => console.error(err.stack))\"",
+    "test": "mocha --compilers js:babel/register --recursive"
+  },
+  "keywords": [
+    "geo",
+    "country",
+    "countries",
+    "region",
+    "regions",
+    "province",
+    "provinces",
+    "state",
+    "states"
+  ],
+  "author": "Gabriel Bull",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smart-io/js-geo"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "blanket": "^1.1.7",
+    "chai": "^3.3.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.2.5",
+    "mocha-spec-cov-alt": "^0.3.0",
+    "request": "^2.63.0",
+    "should": "^7.1.0",
+    "temp": "^0.8.3"
+  }
+}
