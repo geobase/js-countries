@@ -1,4 +1,16 @@
 class ArrayCollection extends Array {
+    static removeAccents(string) {
+        return string
+            .toLowerCase()
+            .replace(/[åáàãâä]/gi, "a")
+            .replace(/[éèëê]/gi, "e")
+            .replace(/[íìïî]/gi, "i")
+            .replace(/[óòöôõø]/gi, "o")
+            .replace(/[úùüû]/gi, "u")
+            .replace(/[ç]/gi, "c")
+            .replace(/[ñ]/gi, "n");
+    }
+
     get(key) {
         return this.elements[key];
     }
@@ -34,14 +46,27 @@ class ArrayCollection extends Array {
     }
 
     orderByChildCollection(keys) {
-        let ordered = {};
+        let nonSorted = {};
 
         for(let prop in this.elements) {
             let newKeys = keys.slice(0);
             if(this.elements.hasOwnProperty(prop)) {
                 let value = this.getChildValueRecursive(this.elements[prop], newKeys);
-                console.log(value);
+                nonSorted[ArrayCollection.removeAccents(value)] = this.elements[prop];
             }
+        }
+
+        let orderedKeys = [];
+        for(let key in nonSorted) {
+            if (nonSorted.hasOwnProperty(key)) {
+                orderedKeys.push(key);
+            }
+        }
+        orderedKeys.sort();
+
+        this.clear();
+        for (let i = 0, len = orderedKeys.length; i < len; ++i) {
+            this.add(nonSorted[orderedKeys[i]]);
         }
     }
 
