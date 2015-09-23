@@ -7,7 +7,7 @@ class Region extends Model {
     names: RegionNameCollection
   };
 
-  country() {
+  get country() {
     if (typeof this._country !== 'undefined') {
       return this._country;
     }

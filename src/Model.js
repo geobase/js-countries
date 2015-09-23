@@ -26,8 +26,8 @@ class Model {
   }
 
   get(attribute) {
-    if (typeof this[attribute] === 'function') {
-      return this[attribute]();
+    if (this[attribute] !== undefined) {
+      return this[attribute];
     }
 
     return this.attributes[attribute] !== undefined ? this.attributes[attribute] : null;
