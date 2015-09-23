@@ -1,7 +1,11 @@
 # CHANGELOG
 
-## 0.1.8 (upcoming)
+## 0.1.9 (upcoming)
 
+
+## 0.1.8 (released 23-09-2015)
+
+- Bug fixes
 
 ## 0.1.7 (released 23-09-2015)
 

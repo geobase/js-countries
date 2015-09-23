@@ -7,10 +7,17 @@ class CountryLoader {
   static countryPolygonFile = 'countries/countries/%s/polygon.json';
 
   static loadAllCountries() {
-    if (typeof window !== 'undefined' && typeof window.Geo !== 'undefined') {
-      return window.Geo.storage[CountryLoader.allCountriesFile];
+    const file = CountryLoader.allCountriesFile;
+    const filepath = '.' + CountryLoader.storage + '/' + file;
+
+    if (storage && storage[file]) {
+      return storage[file];
     }
-    return require('.' + CountryLoader.storage + '/' + CountryLoader.allCountriesFile);
+    try {
+      return require(filepath);
+    } catch (err) {
+      return null;
+    }
   }
 
   static loadCountry(country) {

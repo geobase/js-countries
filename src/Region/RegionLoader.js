@@ -7,10 +7,16 @@ class RegionLoader {
   static regionPolygonFile = 'regions/regions/%s/polygon.json';
 
   static loadAllRegions() {
-    if (typeof window !== 'undefined' && typeof window.Geo !== 'undefined') {
-      return window.Geo.storage[RegionLoader.allRegionsFile];
+    const file = RegionLoader.allRegionsFile;
+    const filepath = '.' + RegionLoader.storage + '/' + file;
+    if (storage && storage[file]) {
+      return storage[file];
     }
-    return require('.' + RegionLoader.storage + '/' + RegionLoader.allRegionsFile);
+    try {
+      return require(filepath);
+    } catch (err) {
+      return null;
+    }
   }
 
   static loadRegion(region) {
