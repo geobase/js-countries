@@ -15,6 +15,13 @@ describe('CountryRepository', () => {
     expect(country).to.be.null;
   });
 
+  it('find country by code', () => {
+    const country = CountryRepository.findByCode('CAN');
+    expect(country).to.be.instanceOf(Country);
+    expect(country.get('code')).to.be.equal('CAN');
+    expect(country.get('shortCode')).to.be.equal('CA');
+  });
+
   it('find country by short code', () => {
     const country = CountryRepository.findByShortCode('DE');
     expect(country).to.be.instanceOf(Country);

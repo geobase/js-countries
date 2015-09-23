@@ -35,8 +35,8 @@ class ArrayCollection extends Array {
       return this;
     }
 
-    for(var prop in items) {
-      if(items.hasOwnProperty(prop)) {
+    for (var prop in items) {
+      if (items.hasOwnProperty(prop)) {
         key = prop.toLowerCase();
         if (items[prop] instanceof this.model) {
           this.elements[key] = items[prop];
@@ -62,16 +62,16 @@ class ArrayCollection extends Array {
   sortMulti(keys) {
     let nonSorted = {};
 
-    for(let prop in this.elements) {
+    for (let prop in this.elements) {
       let newKeys = keys.slice(0);
-      if(this.elements.hasOwnProperty(prop)) {
+      if (this.elements.hasOwnProperty(prop)) {
         let value = ArrayCollection._getChildValueRecursive(this.elements[prop], newKeys);
         nonSorted[ArrayCollection._removeAccents(value)] = this.elements[prop];
       }
     }
 
     let orderedKeys = [];
-    for(let key in nonSorted) {
+    for (let key in nonSorted) {
       if (nonSorted.hasOwnProperty(key)) {
         orderedKeys.push(key);
       }
@@ -84,13 +84,36 @@ class ArrayCollection extends Array {
     }
   }
 
-  where(attributes, first) {
-    return this[first ? 'find' : 'filter'](attributes);
-  };
+  find(attributes) {
+    for (let key in this.elements) {
+      if (this.elements.hasOwnProperty(key)) {
+        let match = true;
+        for (let prop in attributes) {
+          if (attributes.hasOwnProperty(prop)) {
+            if (!this.elements[key].attributes[prop] || this.elements[key].attributes[prop] !== attributes[prop]) {
+              match = false;
+            }
+          }
+        }
+        if (match) {
+          return this.elements[key];
+        }
+      }
+    }
+    return null;
+  }
+
+  where(attributes) {
+    return this.find(attributes);
+  }
+
+;
 
   findWhere(attributes) {
     return this.where(attributes, true);
-  };
+  }
+
+;
 
   static _getChildValueRecursive(item, keys) {
     const key = keys.shift();

@@ -12,6 +12,13 @@ class CountryRepository {
     return CountryRepository.items = CountryMapper.mapArrayToCollection(CountryLoader.loadAllCountries());
   }
 
+  static findByCode(code) {
+    if (CountryRepository.items === undefined) {
+      CountryRepository.findAll();
+    }
+    return CountryRepository.items.findWhere({code: code});
+  }
+
   static findByShortCode(code) {
     if (CountryRepository.items !== undefined) {
       return CountryRepository.items.get(code);
