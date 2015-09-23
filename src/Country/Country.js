@@ -13,6 +13,11 @@ class Country extends Model {
     }
     return this._regions = RegionRepository.findByCountry(this.attributes.shortCode);
   }
+
+  getname(language) {
+    language = language ? language : 'en';
+    return this.get('names').get(language).get('name');
+  }
 }
 
 export default Country;

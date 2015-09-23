@@ -1,7 +1,12 @@
 # CHANGELOG
 
-## 0.1.4 (upcoming)
+## 0.1.5 (upcoming)
 
+
+## 0.1.4 (released 23-09-2015)
+
+- Added region ordering by name
+- Added shortcut for getting region and country names
 
 ## 0.1.3 (released 23-09-2015)
 

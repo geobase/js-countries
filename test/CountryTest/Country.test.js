@@ -10,4 +10,10 @@ describe('Country', () => {
     expect(region).to.instanceOf(Region);
     expect(region.get('code')).to.equal('CA');
   });
+
+  it('get country name', () => {
+    const country = CountryRepository.findByShortCode('US');
+    expect(country.get('name')).to.equal('United States');
+    expect(country.get('name', 'fr')).to.equal('États-Unis');
+  });
 });

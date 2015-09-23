@@ -83,28 +83,29 @@ __Examples__
 Get a list of all countries.
 
 ```javascript
-var Geo = require('smart-geo');
+require('smart-geo');
 
 var countries = Geo.countryRepository.findAll();
 console.log(countries);
 ```
 
-Get a country name in english.
+Get a country name in english or othe languages.
 
 ```javascript
-var Geo = require('smart-geo');
+require('smart-geo');
 
 var country = Geo.countryRepository.findByShortCode('US');
-console.log(country.names.get('en').name);
+console.log(country.get('name'));
+console.log(country.get('name', 'fr'));
 ```
 
-Order by country name in english.
+Order by country name in any language.
 
 ```javascript
-var Geo = require('smart-geo');
+require('smart-geo');
 
 var countries = Geo.countryRepository.findAll();
-countries.orderByName();
+countries.orderByName('de');
 console.log(countries);
 ```
 
@@ -129,24 +130,23 @@ __Examples__
 Get a list of all regions in the US.
 
 ```javascript
-var Geo = require('smart-geo');
+require('smart-geo');
 
 var country = Geo.countryRepository.findByShortCode('US');
-var regions = Geo.regionRepository.findByCountry(country);
-console.log(regions);
+console.log(country.get('regions'));
 ```
 
 Get region name and type in english.
 
 ```javascript
-var Geo = require('smart-geo');
+require('smart-geo');
 
 var regions = Geo.regionRepository.findAll();
 for (var i = 0, len = regions.length; i < len; ++i) {
   console.log(
-    regions[i].names.get('en').name + " is a " + 
-    regions[i].type + " of the " +
-    regions[i].getCountry().names.get('en').name
+    regions[i].get('name') + " is a " + 
+    regions[i].get('type') + " of the " +
+    regions[i].get('country').get('name')
   );
 }
 ```

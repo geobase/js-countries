@@ -25,9 +25,13 @@ class Model {
     }
   }
 
-  get(attribute) {
+  get(attribute, option) {
+    var funcName = 'get' + attribute;
+
     if (this[attribute] !== undefined) {
       return this[attribute];
+    } else if (typeof this[funcName] === 'function') {
+      return this[funcName](option);
     }
 
     return this.attributes[attribute] !== undefined ? this.attributes[attribute] : null;
