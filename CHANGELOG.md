@@ -1,7 +1,11 @@
 # CHANGELOG
 
-## 0.1.6 (upcoming)
+## 0.1.7 (upcoming)
 
+
+## 0.1.6 (released 23-09-2015)
+
+- Made loading case insensitive
 
 ## 0.1.5 (released 23-09-2015)
 
