@@ -1,7 +1,12 @@
 # CHANGELOG
 
-## 0.1.7 (upcoming)
+## 0.1.8 (upcoming)
 
+
+## 0.1.7 (released 23-09-2015)
+
+- Changed order names to sort
+- Added find by code method to countries
 
 ## 0.1.6 (released 23-09-2015)
 
