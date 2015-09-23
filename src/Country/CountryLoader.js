@@ -14,11 +14,18 @@ class CountryLoader {
   }
 
   static loadCountry(country) {
-    if (storage) {
-      return storage[CountryLoader.countryFile.replace('%s', country)];
+    country = country.toUpperCase();
+    const file = CountryLoader.countryFile.replace('%s', country);
+    const filepath = '.' + CountryLoader.storage + '/' + file;
+
+    if (storage && storage[file]) {
+      return storage[file];
     }
-    let file = '.' + CountryLoader.storage + '/' + CountryLoader.countryFile;
-    return require(file.replace('%s', country));
+    try {
+      return require(filepath);
+    } catch (err) {
+      return null;
+    }
   }
 }
 

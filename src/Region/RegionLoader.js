@@ -14,11 +14,18 @@ class RegionLoader {
   }
 
   static loadRegion(region) {
-    if (storage) {
-      return storage[RegionLoader.regionFile.replace('%s', region)];
+    region = region.toUpperCase();
+    const file = RegionLoader.regionFile.replace('%s', region);
+    const filepath = '.' + RegionLoader.storage + '/' + file;
+
+    if (storage && storage[file]) {
+      return storage[file];
     }
-    let file = '.' + RegionLoader.storage + '/' + RegionLoader.regionFile;
-    return require(file.replace('%s', region));
+    try {
+      return require(filepath);
+    } catch (err) {
+      return null;
+    }
   }
 }
 

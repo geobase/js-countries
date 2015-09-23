@@ -15,7 +15,7 @@ describe('CountryCollection', () => {
         previousName = ArrayCollection.removeAccents(name);
         continue;
       }
-      expect(ArrayCollection.removeAccents(name)).to.greaterThan(previousName);
+      expect(ArrayCollection.removeAccents(name)).to.be.greaterThan(previousName);
       previousName = ArrayCollection.removeAccents(name);
     }
   });

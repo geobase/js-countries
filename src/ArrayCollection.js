@@ -23,7 +23,10 @@ class ArrayCollection extends Array {
   }
 
   get(key) {
-    return this.elements[key.toLowerCase()];
+    if (this.elements[key.toLowerCase()]) {
+      return this.elements[key.toLowerCase()];
+    }
+    return null;
   }
 
   add(items) {

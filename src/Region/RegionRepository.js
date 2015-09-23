@@ -16,7 +16,11 @@ class RegionRepository {
     if (RegionRepository.allRegions !== undefined) {
       return RegionRepository.allRegions.get(code);
     }
-    return RegionMapper.mapArrayToEntity(RegionLoader.loadRegion(code));
+    let region = RegionLoader.loadRegion(code);
+    if (region) {
+      return RegionMapper.mapArrayToEntity(region);
+    }
+    return null;
   }
 
   static findByCountry(country) {

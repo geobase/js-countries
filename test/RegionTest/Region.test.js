@@ -13,7 +13,7 @@ describe('Region', () => {
 
   it('get region name', () => {
     const country = RegionRepository.findByCode('QC');
-    expect(country.get('name')).to.equal('Quebec');
-    expect(country.get('name', 'fr')).to.equal('Québec');
+    expect(country.get('name')).to.be.equal('Quebec');
+    expect(country.get('name', 'fr')).to.be.equal('Québec');
   });
 });
