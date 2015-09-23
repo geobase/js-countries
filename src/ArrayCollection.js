@@ -11,13 +11,13 @@ class ArrayCollection extends Array {
   static removeAccents(string) {
     return string
       .toLowerCase()
-      .replace(/[åáàãâä]/gi, "a")
-      .replace(/[éèëê]/gi, "e")
-      .replace(/[íìïî]/gi, "i")
-      .replace(/[óòöôõø]/gi, "o")
-      .replace(/[úùüû]/gi, "u")
-      .replace(/[ç]/gi, "c")
-      .replace(/[ñ]/gi, "n");
+      .replace(/[åáàãâä]/gi, 'a')
+      .replace(/[éèëê]/gi, 'e')
+      .replace(/[íìïî]/gi, 'i')
+      .replace(/[óòöôõø]/gi, 'o')
+      .replace(/[úùüû]/gi, 'u')
+      .replace(/[ç]/gi, 'c')
+      .replace(/[ñ]/gi, 'n');
   }
 
   get(key) {

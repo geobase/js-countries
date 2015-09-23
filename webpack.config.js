@@ -19,6 +19,11 @@ module.exports = {
       {
         include: /Geo\.js$/,
         loader: 'storage-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
       }
     ],
     loaders: [
@@ -33,5 +38,8 @@ module.exports = {
         loader: 'json-loader'
       }
     ]
+  },
+  eslint: {
+    configFile: './.eslintrc'
   }
 };

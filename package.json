@@ -7,6 +7,7 @@
     "build": "webpack -p",
     "test": "mocha --compilers js:babel/register --recursive"
   },
+  "main": "./build/smart-geo.js",
   "keywords": [
     "geo",
     "country",
@@ -27,8 +28,11 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
+    "babel-eslint": "^4.1.3",
     "babel-loader": "^5.3.2",
     "chai": "^3.3.0",
+    "eslint": "^1.5.1",
+    "eslint-loader": "^1.0.0",
     "json-loader": "^0.5.3",
     "mkdirp": "^0.5.1",
     "mocha": "^2.2.5",
