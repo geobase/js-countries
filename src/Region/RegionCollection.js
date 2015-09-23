@@ -6,8 +6,12 @@ class RegionCollection extends ArrayCollection {
   static key = 'code';
 
   orderByName(language) {
+    return this.sortByName(language);
+  }
+
+  sortByName(language) {
     language = language ? language : 'en';
-    this.order(['names', language, 'name']);
+    this.sort(['names', language, 'name']);
     return this;
   }
 }

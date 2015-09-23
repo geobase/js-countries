@@ -10,18 +10,6 @@ class ArrayCollection extends Array {
     }
   }
 
-  static removeAccents(string) {
-    return string
-      .toLowerCase()
-      .replace(/[åáàãâä]/gi, 'a')
-      .replace(/[éèëê]/gi, 'e')
-      .replace(/[íìïî]/gi, 'i')
-      .replace(/[óòöôõø]/gi, 'o')
-      .replace(/[úùüû]/gi, 'u')
-      .replace(/[ç]/gi, 'c')
-      .replace(/[ñ]/gi, 'n');
-  }
-
   get(key) {
     if (this.elements[key.toLowerCase()]) {
       return this.elements[key.toLowerCase()];
@@ -67,14 +55,18 @@ class ArrayCollection extends Array {
     }
   }
 
-  order(keys) {
+  sort(keys) {
+    this.sortMulti(keys);
+  }
+
+  sortMulti(keys) {
     let nonSorted = {};
 
     for(let prop in this.elements) {
       let newKeys = keys.slice(0);
       if(this.elements.hasOwnProperty(prop)) {
-        let value = this.getChildValueRecursive(this.elements[prop], newKeys);
-        nonSorted[ArrayCollection.removeAccents(value)] = this.elements[prop];
+        let value = ArrayCollection._getChildValueRecursive(this.elements[prop], newKeys);
+        nonSorted[ArrayCollection._removeAccents(value)] = this.elements[prop];
       }
     }
 
@@ -92,15 +84,34 @@ class ArrayCollection extends Array {
     }
   }
 
-  getChildValueRecursive(item, keys) {
-    const key = keys.shift();
+  where(attributes, first) {
+    return this[first ? 'find' : 'filter'](attributes);
+  };
 
-    let value = item.get(key);
+  findWhere(attributes) {
+    return this.where(attributes, true);
+  };
+
+  static _getChildValueRecursive(item, keys) {
+    const key = keys.shift();
+    const value = item.get(key);
     if (keys.length) {
-      return this.getChildValueRecursive(value, keys);
+      return ArrayCollection._getChildValueRecursive(value, keys);
     } else {
       return value;
     }
+  }
+
+  static _removeAccents(string) {
+    return string
+      .toLowerCase()
+      .replace(/[åáàãâä]/gi, 'a')
+      .replace(/[éèëê]/gi, 'e')
+      .replace(/[íìïî]/gi, 'i')
+      .replace(/[óòöôõø]/gi, 'o')
+      .replace(/[úùüû]/gi, 'u')
+      .replace(/[ç]/gi, 'c')
+      .replace(/[ñ]/gi, 'n');
   }
 }
 

@@ -12,11 +12,11 @@ describe('RegionCollection', () => {
     for (var i = 0, len = regions.length; i < len; ++i) {
       let name = regions[i].get('names').get('en').get('name');
       if (!previousName) {
-        previousName = ArrayCollection.removeAccents(name);
+        previousName = ArrayCollection._removeAccents(name);
         continue;
       }
-      expect(ArrayCollection.removeAccents(name)).to.be.greaterThan(previousName);
-      previousName = ArrayCollection.removeAccents(name);
+      expect(ArrayCollection._removeAccents(name)).to.be.greaterThan(previousName);
+      previousName = ArrayCollection._removeAccents(name);
     }
   });
 });
