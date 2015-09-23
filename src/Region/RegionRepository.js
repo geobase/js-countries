@@ -2,20 +2,12 @@ import RegionLoader from './RegionLoader';
 import RegionMapper from './RegionMapper';
 
 class RegionRepository {
-  static items;
-
   static findAll() {
-    return new Promise(async function(resolve, reject) {
-      const collection = await RegionMapper.mapArrayToCollection(await RegionLoader.loadAllRegions());
-      resolve(collection);
-    });
+    return RegionMapper.mapArrayToCollection(RegionLoader.loadAllRegions());
   }
 
   static findByCode(code) {
-    return new Promise(async function(resolve, reject) {
-      const country = await RegionMapper.mapArrayToEntity(await RegionLoader.loadRegion(code));
-      resolve(country);
-    });
+    return RegionMapper.mapArrayToEntity(RegionLoader.loadRegion(code));
   }
 }
 

@@ -4,11 +4,11 @@ class RegionLoader {
   static regionFile = 'regions/regions/%s.json';
   static regionPolygonFile = 'regions/regions/%s/polygon.json';
 
-  static async loadAllRegions() {
+  static loadAllRegions() {
     return require('.' + RegionLoader.storage + '/' + RegionLoader.allRegionsFile);
   }
 
-  static async loadRegion(region) {
+  static loadRegion(region) {
     let file = '.' + RegionLoader.storage + '/' + RegionLoader.regionFile;
     return require(file.replace('%s', region));
   }
