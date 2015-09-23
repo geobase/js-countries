@@ -1,6 +1,6 @@
 {
   "name": "smart-geo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Smart Geo is data from Open Data providers compiled into easy to use JavaScript objects",
   "scripts": {
     "data-update": "babel-node --eval \"require('./bin/data-update')().catch(err => console.error(err.stack))\"",

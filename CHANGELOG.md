@@ -1,7 +1,12 @@
 # CHANGELOG
 
-## 0.1.5 (upcoming)
+## 0.1.6 (upcoming)
 
+
+## 0.1.5 (released 23-09-2015)
+
+- Added AMD compatibility
+- Made collection keys case insensitive
 
 ## 0.1.4 (released 23-09-2015)
 

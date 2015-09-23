@@ -83,18 +83,18 @@ __Examples__
 Get a list of all countries.
 
 ```javascript
-require('smart-geo');
+var geo = require('smart-geo');
 
-var countries = Geo.countryRepository.findAll();
+var countries = geo.countryRepository.findAll();
 console.log(countries);
 ```
 
 Get a country name in english or othe languages.
 
 ```javascript
-require('smart-geo');
+var geo = require('smart-geo');
 
-var country = Geo.countryRepository.findByShortCode('US');
+var country = geo.countryRepository.findByShortCode('US');
 console.log(country.get('name'));
 console.log(country.get('name', 'fr'));
 ```
@@ -102,9 +102,9 @@ console.log(country.get('name', 'fr'));
 Order by country name in any language.
 
 ```javascript
-require('smart-geo');
+var geo = require('smart-geo');
 
-var countries = Geo.countryRepository.findAll();
+var countries = geo.countryRepository.findAll();
 countries.orderByName('de');
 console.log(countries);
 ```
@@ -130,18 +130,18 @@ __Examples__
 Get a list of all regions in the US.
 
 ```javascript
-require('smart-geo');
+var geo = require('smart-geo');
 
-var country = Geo.countryRepository.findByShortCode('US');
+var country = geo.countryRepository.findByShortCode('US');
 console.log(country.get('regions'));
 ```
 
 Get region name and type in english.
 
 ```javascript
-require('smart-geo');
+var geo = require('smart-geo');
 
-var regions = Geo.regionRepository.findAll();
+var regions = geo.regionRepository.findAll();
 for (var i = 0, len = regions.length; i < len; ++i) {
   console.log(
     regions[i].get('name') + " is a " + 

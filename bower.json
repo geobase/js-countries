@@ -3,7 +3,7 @@
   "description": "Smart Geo is data from Open Data providers compiled into easy to use JavaScript objects",
   "homepage": "https://github.com/smart-io/js-geo",
   "main": "./build/smart-geo.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "keywords": [
     "geo",
     "country",
