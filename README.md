@@ -83,32 +83,29 @@ __Examples__
 Get a list of all countries.
 
 ```javascript
-var geo = require('smart-geo');
+var Geo = require('smart-geo');
 
-geo.countryRepository.findAll().then(function (countries) {
-  console.log(countries);
-});
+var countries = Geo.countryRepository.findAll();
+console.log(countries);
 ```
 
 Get a country name in english.
 
 ```javascript
-var geo = require('smart-geo');
+var Geo = require('smart-geo');
 
-geo.countryRepository.findAll().then(function (countries) {
-  console.log(countries.names.get('en').name);
-});
+var country = Geo.countryRepository.findByShortCode('US');
+console.log(country.names.get('en').name);
 ```
 
 Order by country name in english.
 
 ```javascript
-var geo = require('smart-geo');
+var Geo = require('smart-geo');
 
-geo.countryRepository.findAll().then(function (countries) {
-  countries.orderByName();
-  console.log(countries);
-});
+var countries = Geo.countryRepository.findAll();
+countries.orderByName();
+console.log(countries);
 ```
 
 <a name="region-section"/>
@@ -132,30 +129,25 @@ __Examples__
 Get a list of all regions in the US.
 
 ```javascript
-var geo = require('smart-geo');
+var Geo = require('smart-geo');
 
-geo.countryRepository.findByCode('US')
-  .then(function (country) {
-    geo.regionRepository.findByCountry(country).then(function (regions) {
-      console.log(regions);
-    });
-  });
+var country = Geo.countryRepository.findByCode('US');
+var regions = Geo.regionRepository.findByCountry(country);
+console.log(regions);
 ```
 
 Get region name and type in english.
 
 ```javascript
-var geo = require('smart-geo');
+var Geo = require('smart-geo');
 
-geo.regionRepository.findAll()
-  .then(function (regions) {
-    for (var i = 0, len = regions.lenght; i < len; ++i) {
-      console.log(
-        regions[i].names.get('en').name + " is a " + 
-        regions[i].type + " of the " +
-        regions[i].country.names.get('en').name
-    }
-  });
+var regions = Geo.regionRepository.findAll();
+for (var i = 0, len = regions.length; i < len; ++i) {
+  console.log(
+    regions[i].names.get('en').name + " is a " + 
+    regions[i].type + " of the " +
+    regions[i].country.names.get('en').name
+}
 ```
  
 <a name="license-section"/>
