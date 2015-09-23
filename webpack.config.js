@@ -3,8 +3,7 @@ var path = require('path');
 module.exports = {
   resolveLoader: {
     alias: {
-      "storage-loader": path.join(__dirname, "./src/StorageLoader"),
-      "data-loader": path.join(__dirname, "./src/DataLoader")
+      "storage-loader": path.join(__dirname, "./src/StorageLoader")
     }
   },
   entry: './src/Geo.js',

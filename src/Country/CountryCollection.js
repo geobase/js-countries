@@ -6,6 +6,7 @@ class CountryCollection extends ArrayCollection {
   key = 'shortCode';
 
   orderByName(language) {
+    language = language ? language : 'en';
     this.order('names.' + language + '.name');
   }
 }
