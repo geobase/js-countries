@@ -8,6 +8,7 @@ class RegionCollection extends ArrayCollection {
   orderByName(language) {
     language = language ? language : 'en';
     this.order(['names', language, 'name']);
+    return this;
   }
 }
 
