@@ -1,7 +1,7 @@
 # Smart Geo
 
 [![Build Status](https://travis-ci.org/smart-io/js-geo.svg)](https://travis-ci.org/smart-io/js-geo)
-[![Code Climate](https://codeclimate.com/github/yamadapc/js-written-number.png)](https://codeclimate.com/github/yamadapc/js-written-number)
+[![Code Climate](https://codeclimate.com/github/smart-io/js-geo.svg)](https://codeclimate.com/github/smart-io/js-geo)
 [![Dependency Status](https://david-dm.org/smart-io/js-geo.svg)](https://david-dm.org/smart-io/js-geo)
 [![devDependency Status](https://david-dm.org/smart-io/js-geo/dev-status.svg)](https://david-dm.org/smart-io/js-geo#info=devDependencies)
 [![npm downloads per month](http://img.shields.io/npm/dm/smart-geo.svg)](https://www.npmjs.org/package/smart-geo)
