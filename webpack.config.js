@@ -10,14 +10,13 @@ module.exports = {
   output: {
     path: './build',
     filename: './smart-geo.js',
-    libraryTarget: "amd",
-    library: "geo"
+    libraryTarget: "amd"
   },
   module: {
     exprContextCritical: false,
     preLoaders: [
       {
-        include: /Geo\.js$/,
+        include: /Storage\.js$/,
         loader: 'storage-loader'
       },
       {

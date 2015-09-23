@@ -1,3 +1,5 @@
+import storage from '../Storage';
+
 class RegionLoader {
   static storage = '/../../storage';
   static allRegionsFile = 'regions/regions.json';
@@ -12,8 +14,8 @@ class RegionLoader {
   }
 
   static loadRegion(region) {
-    if (typeof window !== 'undefined' && typeof window.Geo !== 'undefined') {
-      return window.Geo.storage[RegionLoader.regionFile.replace('%s', region)];
+    if (storage) {
+      return storage[RegionLoader.regionFile.replace('%s', region)];
     }
     let file = '.' + RegionLoader.storage + '/' + RegionLoader.regionFile;
     return require(file.replace('%s', region));

@@ -1,3 +1,5 @@
+import storage from '../Storage';
+
 class CountryLoader {
   static storage = '/../../storage';
   static allCountriesFile = 'countries/countries.json';
@@ -12,8 +14,8 @@ class CountryLoader {
   }
 
   static loadCountry(country) {
-    if (typeof window !== 'undefined' && typeof window.Geo !== 'undefined') {
-      return window.Geo.storage[CountryLoader.countryFile.replace('%s', country)];
+    if (storage) {
+      return storage[CountryLoader.countryFile.replace('%s', country)];
     }
     let file = '.' + CountryLoader.storage + '/' + CountryLoader.countryFile;
     return require(file.replace('%s', country));

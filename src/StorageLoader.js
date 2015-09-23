@@ -32,12 +32,13 @@ module.exports = function(source) {
   var file;
   var data;
 
+  source = 'var storage = {};\n';
   for (var i = 0, len = files.length; i < len; ++i) {
     file = files[i];
     data = 'storage[\'' + file.file + '\'] = require(\'./../storage/' + file.file + '\');\n';
-    source = data + source;
+    source = source + data;
   }
-  source = 'var storage = {};\n' + source;
+  source = source + '\nexport default storage;\n';
 
   return source;
 };

@@ -3,6 +3,5 @@ import RegionRepository from './Region/RegionRepository';
 
 export default {
   countryRepository: CountryRepository,
-  regionRepository: RegionRepository,
-  storage: storage
+  regionRepository: RegionRepository
 };
