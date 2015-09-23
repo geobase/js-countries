@@ -1,8 +1,10 @@
 class ArrayCollection extends Array {
   elements = {};
 
-  constructor(items) {
+  constructor(items, key, model) {
     super();
+    this.key = key;
+    this.model = model;
     if (items !== undefined) {
       this.add(items);
     }
@@ -25,9 +27,17 @@ class ArrayCollection extends Array {
   }
 
   add(items) {
+    if (Object.prototype.toString.call(items) === '[object Array]') {
+      for (var i = 0, len = items.length; i < len; ++i) {
+        this.elements[items[i].get(this.key)] = items[i];
+        this.push(this.elements[items[i].get(this.key)]);
+      }
+      return;
+    }
+
     if (items instanceof this.model) {
-      this.elements[items[this.key]] = items;
-      this.push(this.elements[items[this.key]]);
+      this.elements[items.get(this.key)] = items;
+      this.push(this.elements[items.get(this.key)]);
       return this;
     }
 
@@ -82,13 +92,7 @@ class ArrayCollection extends Array {
   getChildValueRecursive(item, keys) {
     const key = keys.shift();
 
-    let value;
-    if (item instanceof ArrayCollection) {
-      value = item.get(key);
-    } else {
-      value = item[key];
-    }
-
+    let value = item.get(key);
     if (keys.length) {
       return this.getChildValueRecursive(value, keys);
     } else {

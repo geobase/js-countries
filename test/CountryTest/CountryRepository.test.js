@@ -13,7 +13,7 @@ describe('CountryRepository', () => {
   it('find country by short code', () => {
     const country = CountryRepository.findByShortCode('DE');
     expect(country).to.instanceOf(Country);
-    expect(country.code).to.equal('DEU');
-    expect(country.shortCode).to.equal('DE');
+    expect(country.get('code')).to.equal('DEU');
+    expect(country.get('shortCode')).to.equal('DE');
   });
 });

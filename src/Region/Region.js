@@ -12,8 +12,11 @@ class Region extends Model {
     this.set(attributes);
   }
 
-  getCountry() {
-    return CountryRepository.findByShortCode(this.country);
+  country() {
+    if (typeof this._country !== 'undefined') {
+      return this._country;
+    }
+    return this._country = CountryRepository.findByShortCode(this.attributes.country);
   }
 }
 

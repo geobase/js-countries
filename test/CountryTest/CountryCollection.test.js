@@ -10,7 +10,7 @@ describe('CountryCollection', () => {
 
     let previousName = null;
     for (var i = 0, len = countries.length; i < len; ++i) {
-      let name = countries[i].names.get('en').name;
+      let name = countries[i].get('names').get('en').get('name');
       if (!previousName) {
         previousName = ArrayCollection.removeAccents(name);
         continue;

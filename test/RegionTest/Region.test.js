@@ -5,9 +5,9 @@ import Country from '../../src/Country/Country';
 describe('Region', () => {
   it('find country for region', () => {
     const region = RegionRepository.findByCode('WA');
-    const country = region.getCountry();
+    const country = region.get('country');
     expect(country).to.instanceOf(Country);
-    expect(country.code).to.equal('USA');
-    expect(country.shortCode).to.equal('US');
+    expect(country.get('code')).to.equal('USA');
+    expect(country.get('shortCode')).to.equal('US');
   });
 });

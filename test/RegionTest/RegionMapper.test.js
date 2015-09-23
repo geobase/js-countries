@@ -8,7 +8,7 @@ describe('RegionMapper', () => {
     const collection = RegionLoader.loadAllRegions();
     const entity = RegionMapper.mapArrayToEntity(collection[0]);
     expect(entity).to.instanceOf(Region);
-    expect(entity.code.length).to.greaterThan(0);
+    expect(entity.get('code').length).to.greaterThan(0);
   });
 
   it('maps array to collection', () => {

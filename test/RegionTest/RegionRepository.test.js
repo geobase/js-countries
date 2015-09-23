@@ -14,14 +14,15 @@ describe('RegionRepository', () => {
   it('find region by code', () => {
     const region = RegionRepository.findByCode('BC');
     expect(region).to.instanceOf(Region);
-    expect(region.code).to.equal('BC');
+    expect(region.get('code')).to.equal('BC');
   });
 
   it('find regions by country', () => {
     const country = CountryRepository.findByShortCode('US');
     const regions = RegionRepository.findByCountry(country);
+    //console.log(regions);
     const region = regions.get('VA');
     expect(region).to.instanceOf(Region);
-    expect(region.code).to.equal('VA');
+    expect(region.get('code')).to.equal('VA');
   });
 });

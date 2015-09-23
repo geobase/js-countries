@@ -8,7 +8,7 @@ describe('CountryMapper', () => {
     const contries = CountryLoader.loadAllCountries();
     const entity = CountryMapper.mapArrayToEntity(contries[0]);
     expect(entity).to.instanceOf(Country);
-    expect(entity.code.length).to.greaterThan(0);
+    expect(entity.get('code').length).to.greaterThan(0);
   });
 
   it('maps array to collection', () => {

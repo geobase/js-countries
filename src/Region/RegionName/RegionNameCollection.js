@@ -2,11 +2,11 @@ import ArrayCollection from '../../ArrayCollection';
 import RegionName from './RegionName';
 
 class RegionNameCollection extends ArrayCollection {
-  model = RegionName;
-  key = 'language';
+  static model = RegionName;
+  static key = 'language';
 
   constructor(items) {
-    super();
+    super(null, RegionNameCollection.key, RegionNameCollection.model);
     if (items !== undefined) {
       this.add(items);
     }
@@ -15,7 +15,7 @@ class RegionNameCollection extends ArrayCollection {
   add(items) {
     for(var prop in items) {
       if(items.hasOwnProperty(prop)) {
-        this.elements[prop] = new this.model({language: prop, name: items[prop]});
+        this.elements[prop] = new RegionNameCollection.model({language: prop, name: items[prop]});
         this.push(this.elements[prop]);
       }
     }

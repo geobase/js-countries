@@ -1,5 +1,6 @@
 import RegionLoader from './RegionLoader';
 import RegionMapper from './RegionMapper';
+import RegionCollection from './RegionCollection';
 
 class RegionRepository {
   static allRegions;
@@ -20,17 +21,17 @@ class RegionRepository {
 
   static findByCountry(country) {
     if (typeof country !== 'string') {
-      country = country.shortCode;
+      country = country.attributes.shortCode;
     }
 
     let returnValue = [];
     const regions = RegionRepository.findAll();
     for (var i = 0, len = regions.length; i < len; ++i) {
-      if (regions[i].country === country) {
+      if (regions[i].attributes.country === country) {
         returnValue.push(regions[i]);
       }
     }
-    return RegionMapper.mapArrayToCollection(returnValue);
+    return new RegionCollection(returnValue);
   }
 }
 
