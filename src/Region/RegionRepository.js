@@ -23,11 +23,11 @@ class RegionRepository {
     if (typeof country !== 'string') {
       country = country.attributes.shortCode;
     }
-
+    country = country.toLowerCase();
     let returnValue = [];
     const regions = RegionRepository.findAll();
     for (var i = 0, len = regions.length; i < len; ++i) {
-      if (regions[i].attributes.country === country) {
+      if (regions[i].attributes.country.toLowerCase() === country) {
         returnValue.push(regions[i]);
       }
     }

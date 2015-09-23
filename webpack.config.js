@@ -10,8 +10,8 @@ module.exports = {
   output: {
     path: './build',
     filename: './smart-geo.js',
-    libraryTarget: "var",
-    library: "Geo"
+    libraryTarget: "amd",
+    library: "geo"
   },
   module: {
     exprContextCritical: false,

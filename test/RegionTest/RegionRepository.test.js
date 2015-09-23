@@ -20,7 +20,6 @@ describe('RegionRepository', () => {
   it('find regions by country', () => {
     const country = CountryRepository.findByShortCode('US');
     const regions = RegionRepository.findByCountry(country);
-    //console.log(regions);
     const region = regions.get('VA');
     expect(region).to.instanceOf(Region);
     expect(region.get('code')).to.equal('VA');

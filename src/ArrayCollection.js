@@ -23,32 +23,36 @@ class ArrayCollection extends Array {
   }
 
   get(key) {
-    return this.elements[key];
+    return this.elements[key.toLowerCase()];
   }
 
   add(items) {
+    var key;
     if (Object.prototype.toString.call(items) === '[object Array]') {
       for (var i = 0, len = items.length; i < len; ++i) {
-        this.elements[items[i].get(this.key)] = items[i];
-        this.push(this.elements[items[i].get(this.key)]);
+        key = items[i].get(this.key).toLowerCase();
+        this.elements[key] = items[i];
+        this.push(this.elements[key]);
       }
       return;
     }
 
     if (items instanceof this.model) {
-      this.elements[items.get(this.key)] = items;
-      this.push(this.elements[items.get(this.key)]);
+      key = items.get(this.key).toLowerCase();
+      this.elements[key] = items;
+      this.push(this.elements[key]);
       return this;
     }
 
     for(var prop in items) {
       if(items.hasOwnProperty(prop)) {
+        key = prop.toLowerCase();
         if (items[prop] instanceof this.model) {
-          this.elements[prop] = items[prop];
-          this.push(items[prop]);
+          this.elements[key] = items[prop];
+          this.push(items[key]);
         } else {
-          this.elements[prop] = new this.model(items[prop]);
-          this.push(this.elements[prop]);
+          this.elements[key] = new this.model(items[prop]);
+          this.push(this.elements[key]);
         }
       }
     }
