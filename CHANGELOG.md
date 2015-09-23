@@ -1,8 +1,11 @@
 # CHANGELOG
 
-## 0.1.3 (upcoming)
+## 0.1.4 (upcoming)
 
-- 
+
+## 0.1.3 (released 23-09-2015)
+
+- Removed some useless stuff from bower
 
 ## 0.1.2 (released 23-09-2015)
 
