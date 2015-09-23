@@ -1,6 +1,7 @@
 import chai, { expect } from 'chai';
 import Region from '../../src/Region/Region';
 import RegionRepository from '../../src/Region/RegionRepository';
+import CountryRepository from '../../src/Country/CountryRepository';
 
 describe('RegionRepository', () => {
   it('find all regions', () => {
@@ -11,8 +12,16 @@ describe('RegionRepository', () => {
   });
 
   it('find region by code', () => {
-    const region =RegionRepository.findByCode('BC');
+    const region = RegionRepository.findByCode('BC');
     expect(region).to.instanceOf(Region);
     expect(region.code).to.equal('BC');
+  });
+
+  it('find regions by country', () => {
+    const country = CountryRepository.findByShortCode('US');
+    const regions = RegionRepository.findByCountry(country);
+    const region = regions.get('VA');
+    expect(region).to.instanceOf(Region);
+    expect(region.code).to.equal('VA');
   });
 });

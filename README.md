@@ -131,7 +131,7 @@ Get a list of all regions in the US.
 ```javascript
 var Geo = require('smart-geo');
 
-var country = Geo.countryRepository.findByCode('US');
+var country = Geo.countryRepository.findByShortCode('US');
 var regions = Geo.regionRepository.findByCountry(country);
 console.log(regions);
 ```
@@ -146,7 +146,8 @@ for (var i = 0, len = regions.length; i < len; ++i) {
   console.log(
     regions[i].names.get('en').name + " is a " + 
     regions[i].type + " of the " +
-    regions[i].country.names.get('en').name
+    regions[i].getCountry().names.get('en').name
+  );
 }
 ```
  

@@ -1033,12 +1033,34 @@ var Geo =
 	  _createClass(RegionRepository, null, [{
 	    key: 'findAll',
 	    value: function findAll() {
-	      return _RegionMapper2['default'].mapArrayToCollection(_RegionLoader2['default'].loadAllRegions());
+	      if (RegionRepository.allRegions !== undefined) {
+	        return RegionRepository.allRegions;
+	      }
+	      return RegionRepository.allRegions = _RegionMapper2['default'].mapArrayToCollection(_RegionLoader2['default'].loadAllRegions());
 	    }
 	  }, {
 	    key: 'findByCode',
 	    value: function findByCode(code) {
+	      if (RegionRepository.allRegions !== undefined) {
+	        return RegionRepository.allRegions.get(code);
+	      }
 	      return _RegionMapper2['default'].mapArrayToEntity(_RegionLoader2['default'].loadRegion(code));
+	    }
+	  }, {
+	    key: 'findByCountry',
+	    value: function findByCountry(country) {
+	      if (typeof country !== 'string') {
+	        country = country.shortCode;
+	      }
+
+	      var returnValue = [];
+	      var regions = RegionRepository.findAll();
+	      for (var i = 0, len = regions.length; i < len; ++i) {
+	        if (regions[i].country === country) {
+	          returnValue.push(regions[i]);
+	        }
+	      }
+	      return _RegionMapper2['default'].mapArrayToCollection(returnValue);
 	    }
 	  }]);
 
@@ -1152,6 +1174,8 @@ var Geo =
 	  value: true
 	});
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -1168,6 +1192,10 @@ var Geo =
 
 	var _RegionNameRegionNameCollection2 = _interopRequireDefault(_RegionNameRegionNameCollection);
 
+	var _CountryCountryRepository = __webpack_require__(1);
+
+	var _CountryCountryRepository2 = _interopRequireDefault(_CountryCountryRepository);
+
 	var Region = (function (_Model) {
 	  _inherits(Region, _Model);
 
@@ -1180,6 +1208,13 @@ var Geo =
 	    };
 	    this.set(attributes);
 	  }
+
+	  _createClass(Region, [{
+	    key: 'getCountry',
+	    value: function getCountry() {
+	      return _CountryCountryRepository2['default'].findByShortCode(this.country);
+	    }
+	  }]);
 
 	  return Region;
 	})(_Model3['default']);

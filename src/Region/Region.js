@@ -1,5 +1,6 @@
 import Model from '../Model';
 import RegionNameCollection from './RegionName/RegionNameCollection';
+import CountryRepository from '../Country/CountryRepository';
 
 class Region extends Model {
   model = {
@@ -9,6 +10,10 @@ class Region extends Model {
   constructor(attributes) {
     super();
     this.set(attributes);
+  }
+
+  getCountry() {
+    return CountryRepository.findByShortCode(this.country);
   }
 }
 
