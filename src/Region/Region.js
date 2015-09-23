@@ -3,14 +3,9 @@ import RegionNameCollection from './RegionName/RegionNameCollection';
 import CountryRepository from '../Country/CountryRepository';
 
 class Region extends Model {
-  model = {
+  static model = {
     names: RegionNameCollection
   };
-
-  constructor(attributes) {
-    super();
-    this.set(attributes);
-  }
 
   country() {
     if (typeof this._country !== 'undefined') {

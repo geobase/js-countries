@@ -1,10 +1,10 @@
 class ArrayCollection extends Array {
   elements = {};
 
-  constructor(items, key, model) {
+  constructor(items) {
     super();
-    this.key = key;
-    this.model = model;
+    this.key = this.constructor.key;
+    this.model = this.constructor.model;
     if (items !== undefined) {
       this.add(items);
     }
@@ -60,11 +60,7 @@ class ArrayCollection extends Array {
     }
   }
 
-  order(key) {
-    this.orderByChildCollection(key.split('.'));
-  }
-
-  orderByChildCollection(keys) {
+  order(keys) {
     let nonSorted = {};
 
     for(let prop in this.elements) {

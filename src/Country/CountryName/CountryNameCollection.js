@@ -6,7 +6,7 @@ class CountryNameCollection extends ArrayCollection {
   static key = 'language';
 
   constructor(items) {
-    super(null, CountryNameCollection.key, CountryNameCollection.model);
+    super(null);
     if (items !== undefined) {
       this.add(items);
     }
